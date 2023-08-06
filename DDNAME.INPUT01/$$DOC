@@ -1,0 +1,64 @@
+27-Jun-2008 Craig Schneiderwent
+
+Permission is hereby granted, free of charge, to any person or
+organisation to use this software and its associated files
+subject to the following conditions:
+
+The software may be redistributed free of charge to any other
+person or organisation provided that the above copyright notice,
+this permission notice and the disclaimer shall be included with
+all copies of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT
+SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR
+ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE. IF THIS DISCLAIMER
+CONTRADICTS LOCALLY APPLICABLE LAW THEN USE OF THIS
+SOFTWARE IS PROHIBITED.
+
+This application was previously available as the Category 4 MA1K
+SupportPac and hosted on IBM's WebSphere MQ SupportPac website.  Changes
+in IBM's licensing necessitated withdrawal of the code as a SupportPac.
+
+The purpose of this application is to encapsulate triggered message
+processing for MQSeries applications triggered in CICS TS.
+
+Applications that are triggered can call this subroutine and receive
+their triggering message. If the triggering message's
+MQMD-BACKOUTCOUNT >= the queue's MQIA-BACKOUT-THRESHOLD the "poison"
+message will be moved to the queue's MQCA-BACKOUT-REQ-Q-NAME. If the
+queue has no MQCA-BACKOUT-REQ-Q-NAME the poison message will be
+discarded.
+
+In any case, a message will be written to the system log indicating
+what action was taken.
+
+POSSIBLE USES
+This application generically encapsulates triggered message
+processing, backout processing and error handling for triggered queues
+in CICS TS. Adopted as a standard, or used as a base and modified to
+create a standard, development time can be reduced and uniform error
+handling assured.
+
+CMQAPIDC  COBOL copybook used in several programs to provide
+          identifiers to be used in CALL <identifier> statements.
+          This allows dynamic invocation of the MQ API subroutines.
+
+C7200506  COBOL copybook used by J7200506, renamed here with a C as the
+          first character so it can reside in the same library as the
+          source that refers to it.  J7200506 refers to this copybook
+          by its original name - J7200506.
+
+C7200507  COBOL copybook used by J7200507, renamed here with a C as the
+          first character so it can reside in the same library as the
+          source that refers to it.  J7200507 refers to this copybook
+          by its original name - J7200507.
+
+MQRSNCD1  COBOL copybook created by CMQV Rexx program included in
+          this package.
+
